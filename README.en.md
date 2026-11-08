@@ -1,6 +1,4 @@
-# dsh-videokit — long-video understanding for DeepSeek Harness
-
-[![CI](https://github.com/Jablem/dsh-videokit/actions/workflows/ci.yml/badge.svg)](https://github.com/Jablem/dsh-videokit/actions/workflows/ci.yml)
+﻿# dsh-videokit — long-video understanding for DeepSeek Harness
 
 A plugin for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (dsh) that
 **reads a long video end to end**, instead of sampling a few frames and guessing.

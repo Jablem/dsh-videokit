@@ -1,6 +1,4 @@
-# dsh-videokit —— 长视频理解插件
-
-[![CI](https://github.com/Jablem/dsh-videokit/actions/workflows/ci.yml/badge.svg)](https://github.com/Jablem/dsh-videokit/actions/workflows/ci.yml)
+﻿# dsh-videokit —— 长视频理解插件
 
 给 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（dsh）用的插件：
 把半小时以上的视频**从头读到尾**，而不是均匀抽几帧猜内容。

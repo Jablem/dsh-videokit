@@ -1,0 +1,12 @@
+# dsh-videokit bundle patch：一个 host 插件（video_probe / video_download /
+# video_index / video_timeline / video_frames / video_summarize / video_report
+# 七个工具 + 用法提示词 + 可选 /videokit-api 路由），外加同一包的 client 半边
+# （设置页「视频理解」栏，由 dsh.client 字段自动发现）。
+#
+# name 必须是实际包名（dsh-videokit）——cordis 按 name import 包。
+# 路径与端点都不在这里写死：
+#   插件按「~/.dsh/dsh-videokit.json（设置页写入） > patch 配置 > 内置探测」解析，
+#   python/ffmpeg/ffprobe 路径改完不用重启 dsh。
+- insert:
+    - id: dsh-videokit
+      name: dsh-videokit

@@ -1,0 +1,21 @@
+# 依赖 / 字节码
+node_modules/
+__pycache__/
+*.pyc
+
+# 测试与演示产物（fixture 由 test/make_fixture.py 现生成，不进仓库）
+test/fixture.mp4
+*.m4s
+*.part
+*.log
+
+# 本地状态
+.tmp/
+.tmp-settings.json
+.series-cache/
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

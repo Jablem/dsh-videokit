@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  static:
+    name: 语法与装配
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Node 语法检查
+        run: |
+          node --check index.js
+          node --check config.js
+          node --check client.js
+
+      - name: Python 编译检查
+        run: python -m compileall -q scripts test verify
+
+      - name: host 半边装配自检
+        # 不需要 dsh、不需要网络：伪造 ctx 跑 apply()，把七个…九个工具装配一遍，
+        # 再验一次配置读写的脱敏往返。
+        run: node verify/apply_check.mjs
+
+      - name: 纯函数单测
+        # 分块 / 帧选举 / 时间解析 / 配置退化的断言，零依赖零网络。
+        run: python test/selftest.py
+
+  engine:
+    name: 引擎全链路（ffmpeg + mock 端点）
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 装 ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: 生成假素材并跑端到端
+        # 本地 mock 取代真实端点：probe → index(ASR+抽帧+VLM) → timeline → frames
+        # → summarize(map-reduce) → report，零网络。
+        env:
+          VIDEOKIT_FFMPEG: /usr/bin/ffmpeg
+          VIDEOKIT_FFPROBE: /usr/bin/ffprobe
+        run: |
+          python test/make_fixture.py
+          python test/e2e_mock_test.py
+          python test/needle_test.py

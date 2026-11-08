@@ -1,0 +1,66 @@
+{
+  "name": "dsh-videokit",
+  "version": "1.0.0",
+  "description": "dsh 长视频理解插件：音频全长 ASR 覆盖 + 场景/尾部加密抽帧 + 结构化时间线 + map-reduce 汇总。端点（ASR / 视觉 / 汇总）由用户在设置页配置，不写死厂商。",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "config.js",
+    "cordis.patch.yml",
+    "scripts/videokit.py",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "*"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "video",
+    "long-video",
+    "asr",
+    "vlm",
+    "ocr",
+    "map-reduce",
+    "bilibili",
+    "video-understanding"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jablem/dsh-videokit.git"
+  },
+  "homepage": "https://github.com/Jablem/dsh-videokit#readme",
+  "bugs": {
+    "url": "https://github.com/Jablem/dsh-videokit/issues"
+  },
+  "author": "Jablem",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.5"
+  }
+}

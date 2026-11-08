@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Video Understanding",
+    "description": "Reads long videos end to end: full-length speech transcription, scene and tail-biased keyframes with a vision model, a structured timeline, and map-reduce summarization. Endpoints are configured per user."
+  }
+}

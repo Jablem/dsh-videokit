@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Video understanding">
+  <defs>
+    <linearGradient id="vk-strip" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2b6cb0"/>
+      <stop offset="1" stop-color="#1a4e85"/>
+    </linearGradient>
+  </defs>
+  <!-- film body -->
+  <rect x="6" y="10" width="52" height="36" rx="7" fill="url(#vk-strip)"/>
+  <!-- sprocket holes -->
+  <g fill="#ffffff" opacity="0.9">
+    <rect x="11" y="15" width="5" height="4" rx="1.5"/>
+    <rect x="11" y="24" width="5" height="4" rx="1.5"/>
+    <rect x="11" y="33" width="5" height="4" rx="1.5"/>
+    <rect x="48" y="15" width="5" height="4" rx="1.5"/>
+    <rect x="48" y="24" width="5" height="4" rx="1.5"/>
+    <rect x="48" y="33" width="5" height="4" rx="1.5"/>
+  </g>
+  <!-- play head -->
+  <path d="M27 20 L42 28 L27 36 Z" fill="#ffffff"/>
+  <!-- timeline rail -->
+  <rect x="6" y="52" width="52" height="5" rx="2.5" fill="#1a4e85" opacity="0.28"/>
+  <!-- transcript coverage: dense to the very end -->
+  <rect x="6" y="52" width="52" height="5" rx="2.5" fill="#4a9ede"/>
+  <!-- tail emphasis: denser sampling at the end -->
+  <rect x="41" y="50" width="17" height="9" rx="4" fill="#ffd166"/>
+  <circle cx="50" cy="54.5" r="2.2" fill="#1a2a3a"/>
+</svg>
